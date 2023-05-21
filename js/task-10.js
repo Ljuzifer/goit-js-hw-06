@@ -24,6 +24,8 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
+const newBoxes = [];
+
 function createBoxes(amount) {
   for (let i = 0; i < amount; i += 1) {
     let box = document.createElement("div");
@@ -33,6 +35,7 @@ function createBoxes(amount) {
     box.style.backgroundColor = getRandomHexColor();
     console.log(box);
 
-    refs.boxElementsRef.append(box);
+    newBoxes.push(box);
   }
+  refs.boxElementsRef.append(...newBoxes);
 }
