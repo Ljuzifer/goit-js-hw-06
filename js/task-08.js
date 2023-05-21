@@ -7,11 +7,9 @@ function onGetFormData(event) {
 
   const inputs = document.querySelectorAll("input");
 
-  inputs.forEach((input) => {
-    if (input.value.trim() === "") {
-      return alert("All fields must be filled!");
-    }
-  });
+  if (inputs[0].value.trim() === "" || inputs[1].value.trim() === "") {
+    return alert("All fields must be filled!");
+  }
 
   const formElements = event.currentTarget.elements;
 
