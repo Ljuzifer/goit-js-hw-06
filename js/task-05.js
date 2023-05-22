@@ -5,6 +5,10 @@ fieldInputRef.addEventListener("input", onInputValueField);
 
 function onInputValueField(event) {
   event.preventDefault;
-  console.log(event.currentTarget.value);
+
   fieldOutputRef.textContent = event.currentTarget.value;
+
+  if (event.currentTarget.value === "") {
+    fieldOutputRef.textContent = "Anonymous";
+  }
 }

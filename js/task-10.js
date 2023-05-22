@@ -15,7 +15,8 @@ refs.createButtonRef.addEventListener("click", () => {
 refs.destroyButtonRef.addEventListener("click", () => {
   refs.boxElementsRef.innerHTML = "";
   refs.numberFieldRef.value = "";
-  console.clear();
+  newBoxes.length = 0;
+  // console.clear();
 });
 
 function getRandomHexColor() {
@@ -24,18 +25,39 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-function createBoxes(amount) {
-  const newBoxes = [];
+const newBoxes = [];
 
+function createBoxes(amount) {
   for (let i = 0; i < amount; i += 1) {
     let box = document.createElement("div");
-    box.style.width = 30 + 10 * i + "px";
-    box.style.height = 30 + 10 * i + "px";
+
+    box.style.width = 30 + 10 * (newBoxes.length - 1) + 10 + 10 + "px";
+    box.style.height = box.style.width;
     box.style.marginTop = 4 + "px";
     box.style.backgroundColor = getRandomHexColor();
-    console.log(box);
 
     newBoxes.push(box);
+    // console.log(box);
   }
+
   refs.boxElementsRef.append(...newBoxes);
 }
+
+// Another method, BUT append refers to the document is often
+
+// function createBoxes(amount) {
+//   const newBoxes = [];
+
+//   for (let i = 0; i < amount; i += 1) {
+//     let box = document.createElement("div");
+
+//     box.style.width =
+//       30 + 10 * (refs.boxElementsRef.childElementCount - 1) + 10 + "px";
+//     box.style.height = box.style.width;
+//     box.style.marginTop = 4 + "px";
+//     box.style.backgroundColor = getRandomHexColor();
+
+//     newBoxes.push(box);
+//     refs.boxElementsRef.append(...newBoxes);
+//   }
+// }

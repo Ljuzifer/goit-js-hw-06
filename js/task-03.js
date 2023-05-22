@@ -44,5 +44,3 @@ const listImage = images.map(listImageMarkup).join("");
 galleryRef.insertAdjacentHTML("beforeend", listImage);
 
 galleryRef.classList.add("js-gallery");
-
-console.log(listImage);
